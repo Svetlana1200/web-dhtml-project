@@ -1,0 +1,145 @@
+/*при наведении на имя выпадает подсказка с полным именем (на странице длиннные имена обрезаются)*/
+/*наведение на картинку - увеличение*/
+/*наведение на возраст, породу, статус, болезни, имя - жирный шрифт*/
+/*наведение на плитку - границы блока толще*/
+
+body {
+    text-align: center;
+    background:#e4e4e4;
+    font-family: "Lucida Console", Monaco, monospace;
+    margin: 0;
+}
+
+.head {
+    z-index: 1000;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    position: sticky;
+    font-family: PT SansNarrow;
+    top: 0;
+    text-align: center;
+    border: 1px solid black;
+
+    font-size: 35px;
+    background-color: #e4e4e4;
+    display: flex;
+    justify-content: center;
+}
+
+.pages{
+    display: flex;
+}
+
+.main,
+.about,
+.reg,
+.exit {
+    padding: 10px;
+    
+}
+
+.exit {
+    font-weight: bold;
+}
+
+.menu-but {
+    font-size: 20px;
+    border: none;
+    background-color: inherit;
+}
+
+.menu-but:hover {
+    background-color: grey;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.checkbox-list-tite + .checkbox-label {
+	display: inline-block;
+    cursor: pointer;
+    font-size: 25px;
+	border: 1px solid #999;
+    user-select: none;
+    width: 70px;
+    height: 40px;
+    background-size: 70px 40px;
+    background-image: url(views/list.png);
+}
+.checkbox-list-tite:checked + .checkbox-label {
+    background-image: url(views/tite.png);
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.cat-description{
+    padding: 10px;
+    font-size: 18px;
+}
+
+.name-cat {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.info-block { /*общие свойства для блоков с описанием и фоточкой котика в случае плитки И списка*/
+    background: #fafafa;
+    border: 2px solid rgb(173, 170, 170);
+    border-radius: 20px;
+    font-family: "Courier New", Courier, monospace;
+    
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    text-align: left;
+}
+
+
+.img_cat { /*размер изображения в плитке*/
+    width: 400px;
+    height: 300px;
+}
+
+.info-block:first-child {
+    background-color: black;
+}
+
+/*
+.info-block:hover {
+    border: 2px solid black;
+}*/
+
+
+
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 30vh;
+    background: #fafafa;
+    border: 2px solid rgb(173, 170, 170);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#login,
+#password {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #e4e4e4;
+}
