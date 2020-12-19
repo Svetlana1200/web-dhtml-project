@@ -1,10 +1,11 @@
-from flask import request, jsonify, send_from_directory, redirect
+from flask import request, jsonify, send_from_directory, redirect, url_for
 import flask_login
 from app import app, models
 
 
 @app.route("/", methods=["GET"])
 def get_autorization():
+    print("/")
     print(flask_login.current_user.is_authenticated)
     if flask_login.current_user.is_authenticated:
         return redirect("/index")
@@ -18,8 +19,8 @@ def get_css():
 
 @app.route("/reg", methods=["GET"])
 def get_reg():
+    print("reg")
     print(flask_login.current_user.is_authenticated)
-
     if flask_login.current_user.is_authenticated:
         return redirect("/index")
     return app.send_static_file("reg.html")
@@ -27,9 +28,21 @@ def get_reg():
 
 @app.route("/index", methods=["GET"])
 def get_index():
+    print("index")
+    print(flask_login.current_user.is_authenticated)
     if not flask_login.current_user.is_authenticated:
         return redirect("/")
-    return app.send_static_file("index.html")
+    with open ("app/static/index.html", 'r', encoding='utf-8') as f:
+        text = f.read()
+        print(text)
+        reg = "Имя"
+        login = flask_login.current_user.login
+        text = text.replace(reg, login)
+        print(text)
+
+    with open ("app/static/index_correct.html", 'w', encoding='utf-8') as f:
+        f.write(text)
+    return app.send_static_file("index_correct.html")
 
 
 @app.route("/about", methods=["GET"])
@@ -39,11 +52,11 @@ def get_about():
     return app.send_static_file("about.html")
 
 
-@app.route("/cats/<name>", methods=["GET"])
+@app.route("/img/<name>", methods=["GET"])
 def get_cat(name):
-    print(app.config["CATS_DIR"])
+    print(app.config["IMG_DIR"])
     return send_from_directory(
-        app.config["CATS_DIR"], name, as_attachment=True)
+        app.config["IMG_DIR"], name, as_attachment=True)
 
 
 @app.route("/register", methods=["POST"])
@@ -70,3 +83,16 @@ def login():
 def logout():
     flask_login.logout_user()
     return redirect("/")
+
+
+@app.after_request
+def add_header(r):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    r.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    r.headers["Pragma"] = "no-cache"
+    r.headers["Expires"] = "0"
+    r.headers['Cache-Control'] = 'public, max-age=0'
+    return r

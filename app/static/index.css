@@ -32,7 +32,7 @@ body {
 
 .main,
 .about,
-.reg,
+.mode,
 .exit {
     padding: 10px;
     
@@ -108,6 +108,19 @@ input[type=checkbox] {
     height: 300px;
 }
 
+.img_little {
+    display: block;
+    width: 400px;
+    height: 300px;
+}
+
+.img_big {
+    display: none;
+    margin: auto;
+    width: 90%;
+    height: 75%;
+}
+
 .info-block:first-child {
     background-color: black;
 }
@@ -144,6 +157,16 @@ input[type=checkbox] {
     background-color: #e4e4e4;
 }
 
+.reg-but,
+.enter-but {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #e4e4e4;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
 .about-block {
     position: absolute;
     top: 50%;
@@ -156,30 +179,35 @@ input[type=checkbox] {
     border-radius: 20px;
 }
 
-.reg-in-reg,
-.enter-in-enter {
-    width: 200px;
-    height: 50px;
-    font-size: 18px;
-    background-color: #e4e4e4;
-    border: 1px solid black;
-    border-radius: 10px;
+@media screen and (max-width: 1000px){
+    #login,
+    #password {
+        width: 200px;
+    }
+    
+    .reg-but,
+    .enter-but {
+        width: 150px;
+    }
+
+    .about-block {
+        width: 60vw;
+    }
 }
 
-.reg-in-enter,
-.enter-in-reg {
-    width: 100px;
-    height: 30px;
-    font-size: 14px;
-    background-color: #e4e4e4;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.text {
+.reg-text,
+.enter-text {
     margin-bottom: 10px;
 }
 
 h2 {
     margin-bottom: 0;
+}
+
+.hello {
+    font-size: 20px;
+}
+
+.name {
+    font-weight: bold;
 }
