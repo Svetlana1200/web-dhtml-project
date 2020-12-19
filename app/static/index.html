@@ -3,7 +3,7 @@
 
     <head>
       <meta charset="utf-8">
-      <title>02-about-cats</title>
+      <title>Галерея</title>
       <link rel="stylesheet" href="./index.css">
 
       <script>
@@ -13,20 +13,6 @@
         let images = document.getElementsByClassName("img_cat")
         let infos = document.getElementsByClassName("info-block")
 
-        function init() {
-          /*for (let info of infos) {
-                info.style.display = "inline-block";
-                info.style.margin = "10px";
-                info.style.width = "400px";
-                info.style.padding = "10px";
-                info.style.textAlign = "left";
-              }
-              for (let image of images) {
-                image.style.width = "400px";
-                image.style.height = "300px";
-              }*/
-            
-        }
 
         function showMe() {
           scroll(0,0)
@@ -93,19 +79,18 @@
 
 
     </head>
-    <body onload="init()" onkeydown="keydown(event)">
+    <body onkeydown="keydown(event)">
         <header class="head">
           <div class="pages">
-            <button class="menu-but main">
+            <button class="menu-but main" onClick='location.href="/index"'>
               Главная
             </button>
-            <button class="menu-but about">
+            <button class="menu-but about" onClick='location.href="/about"'>
               About
             </button>
             <input type="checkbox" id="r">
             <label for="r" class="menu-but reg" onclick="showMe()">Переключить режим</label>
-              
-            <button class="menu-but exit" onClick='location.href="./autorize.html"'>
+            <button class="menu-but exit" onClick='location.href="/logout"'>
               Выйти
             </button>
           </div>
@@ -113,36 +98,35 @@
 
         <div class="content">
           <div class="info-block" id="0">
-            <img src="cats/0.jpg" class="img_cat" alt="0 cat">
+            <img src="/cats/0.jpg" class="img_cat" alt="0 cat">
           </div>
           <div class="info-block" id="1">
-            <img src="cats/1.jpg" class="img_cat" alt="1 cat">
+            <img src="/cats/1.jpg" class="img_cat" alt="1 cat">
           </div>
           <div class="info-block" id="2">
-            <img src="cats/2.jpg" class="img_cat" alt="2 cat">
+            <img src="/cats/2.jpg" class="img_cat" alt="2 cat">
           </div>
           <div class="info-block" id="3">
-            <img src="cats/3.jpg" class="img_cat" alt="3 cat">
+            <img src="/cats/3.jpg" class="img_cat" alt="3 cat">
           </div>
           <div class="info-block" id="4">
-            <img src="cats/4.jpg" class="img_cat" alt="4 cat">
+            <img src="/cats/4.jpg" class="img_cat" alt="4 cat">
           </div>
           <div class="info-block" id="5">
-            <img src="cats/5.jpg" class="img_cat" alt="5 cat">
+            <img src="/cats/5.jpg" class="img_cat" alt="5 cat">
           </div>
           <div class="info-block" id="6">
-            <img src="cats/6.jpg" class="img_cat" alt="6 cat">
+            <img src="/cats/6.jpg" class="img_cat" alt="6 cat">
           </div>
           <div class="info-block" id="7">
-            <img src="cats/7.jpg" class="img_cat" alt="7 cat">
+            <img src="/cats/7.jpg" class="img_cat" alt="7 cat">
           </div>
           <div class="info-block" id="8">
-            <img src="cats/8.jpg" class="img_cat" alt="8 cat">
+            <img src="/cats/8.jpg" class="img_cat" alt="8 cat">
           </div>
           <div class="info-block" id="9">
-            <img src="cats/9.jpg" class="img_cat" alt="9 cat">
+            <img src="/cats/9.jpg" class="img_cat" alt="9 cat">
           </div>
         </div>
-
     </body>
   </html>

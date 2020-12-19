@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/index.css">
+    <script>
+      function reg() {
+        fetch("/register", {
+          method: 'POST',
+          body: JSON.stringify({"login": document.getElementById("login").value, "password": document.getElementById("password").value}),
+          credentials: "include",
+          headers: {"Content-Type": "application/json"}
+        })
+        .then(
+          async (data) => {
+            let dataJson = await data.json()
+            if (dataJson["status"] == 0) {
+              window.location.replace("/");
+            }
+            else {
+              alert("Пользователь уже существует")
+            }
+          }
+        )
+      }
+    </script>
+      
+  </head>
+  <body>
+      <div class="window">
+        <h2>Регистрация</h2>
+        <div>
+            <p class="text">Логин</p>
+            <input id="login" type="text" placeholder="Введите логин">
+        </div>
+        <div>
+            <p class="text">Пароль</p>
+            <div class="password">
+                <input id="password" type="password" placeholder="Введите пароль">
+            </div>
+        </div>
+        <button class="reg-in-reg" onclick="reg()">
+          Зарегистрироваться
+        </button>
+        <a href="/" onClick='location.href="/"'>Войдите если уже есть аккаунт</a>
+        
+      </div>
+  </body>
+</html>

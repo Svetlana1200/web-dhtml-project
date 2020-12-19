@@ -125,7 +125,7 @@ input[type=checkbox] {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
-    height: 30vh;
+    height: 40vh;
     background: #fafafa;
     border: 2px solid rgb(173, 170, 170);
     border-radius: 20px;
@@ -142,4 +142,44 @@ input[type=checkbox] {
     border-radius: 5px;
     text-align: center;
     background-color: #e4e4e4;
+}
+
+.about-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 60vh;
+    background-color: #fafafa;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.reg-in-reg,
+.enter-in-enter {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #e4e4e4;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.reg-in-enter,
+.enter-in-reg {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    background-color: #e4e4e4;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.text {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 0;
 }

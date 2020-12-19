@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/index.css">
+    <script>      
+      function login() {
+        fetch("/login", {
+            method: 'POST',
+            body: JSON.stringify({"login": document.getElementById("login").value, "password": document.getElementById("password").value}),
+            credentials: "include",
+            headers: {"Content-Type": "application/json"}
+          })
+          .then(
+            async (data) => {
+              let dataJson = await data.json()
+              if (dataJson["status"] == 0) {
+                window.location.replace("/index");
+              }
+              else {
+                alert("Неверный логин или пароль")
+              }
+            }
+          )
+      }
+    </script>
+  </head>
+  <body>
+      <div class="window">
+        <h2>Вход</h2>
+        <div>
+            <p class="text">Логин</p>
+            <input id="login" type="text" placeholder="Введите логин">
+        </div>
+        <div>
+            <p class="text">Пароль</p>
+            <div class="password">
+                <input id="password" type="password" placeholder="Введите пароль">
+            </div>
+        </div>
+        <button class="enter-in-enter" onclick="login()">
+            Войти
+        </button>
+        <a href="/reg" onClick='location.href="/reg"'>Создать новый аккаунт</a>
+      </div>
+  </body>
+</html>
